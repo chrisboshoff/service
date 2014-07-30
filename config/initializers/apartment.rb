@@ -33,7 +33,7 @@ Apartment.configure do |config|
   # config.append_environment = true
 
   # supply list of database names for migrations to run on
-  #config.tenant_names = lambda{ Organisation.pluck(:tenant_name) }
+  config.tenant_names = lambda{ Organisation.pluck(:tenant_name) }
 end
 
 ##
