@@ -17,10 +17,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
 /*
 .navbar-custom {
     background-color:#0B5572;
