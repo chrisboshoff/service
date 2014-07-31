@@ -5,18 +5,19 @@ class OrganisationsController < ApplicationController
   end
   
   def create
-    @organisation = Organisation.new(user_params)
-    if @user.save
-      flash[:success] = "You have successfully been signed up"
-      redirect_to root_url
-    else
+#    if Organisation.create(organisation_params.merge(tenant_name: organisation_params[:name].underscore.tr(' ', '_')))
+#      flash[:success] = "You have successfully been signed up"
+#      redirect_to root_url
+#    else
+@organisation = Organisation.new
+    @organisation.user = User.new
       render "new"
-    end
+#    end
   end
   
   private
   
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+  def organisation_params
+    params.require(:organisation).permit(:name, users_attributes: [:email, :password, :password_confirmation])
   end
 end
