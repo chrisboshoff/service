@@ -8,7 +8,6 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <img src="/assets/cloud_white.png" width="30">
     <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -83,9 +82,9 @@
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, class: "alert alert-#{name}", :role => "alert", :id => "flash_#{name}" %>
         <% end %>
-
-        <%= yield %>
       </div>
+    
+    <%= yield %>
     
     <div class="container">
       <hr>

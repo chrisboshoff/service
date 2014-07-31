@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  belongs_to :organisation
+  has_one :organisation
+  
   attr_accessor :password
   before_save :encrypt_password
   

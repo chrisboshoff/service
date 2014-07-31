@@ -1,0 +1,45 @@
+<div class="container">
+  <h4>Sign up your organisation with Cloud Service</h4>
+  <p>The best mobile service solution for your organisation.</p>
+
+  <hr/>
+
+  <%= form_for @organisation do |f| %>
+    <% if @organisation.errors.any? %>
+      <div class="panel panel-danger">
+        <div class="panel-heading"><%= pluralize(@organisation.errors.count, "error") %> prohibited the sign up of this organisation:</div>
+
+        <div class="panel-body">
+          <% @organisation.errors.full_messages.each do |msg| %>
+            <div><%= msg %></div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name, "Organisation Name" %><br />
+      <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <%= f.fields_for @organisation.user do |f| %>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.text_field :email, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+            <% end %>
+
+            <%= f.submit "Sign up", class: 'btn btn-primary' %>
+
+
+            <% end %>
+          </div>
+
