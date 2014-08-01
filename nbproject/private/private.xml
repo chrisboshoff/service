@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Personal/Projects/service/app/controllers/users_controller.rb</file>
+            <file>file:/C:/Personal/Projects/service/app/views/sessions/new.html.erb</file>
+            <file>file:/C:/Personal/Projects/service/app/views/layouts/application.html.erb</file>
+            <file>file:/C:/Personal/Projects/service/app/assets/stylesheets/application.css</file>
+            <file>file:/C:/Personal/Projects/service/app/controllers/organisations_controller.rb</file>
+            <file>file:/C:/Personal/Projects/service/db/schema.rb</file>
+            <file>file:/C:/Personal/Projects/service/app/views/users/new.html.erb</file>
+            <file>file:/C:/Personal/Projects/service/app/models/organisation.rb</file>
+            <file>file:/C:/Personal/Projects/service/app/views/organisations/new.html.erb</file>
+            <file>file:/C:/Personal/Projects/service/app/models/user.rb</file>
+        </group>
+    </open-files>
+</project-private>

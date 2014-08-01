@@ -1,23 +1,36 @@
 class OrganisationsController < ApplicationController
   def new
+    flash.clear
     @organisation = Organisation.new
-    @organisation.user = User.new
+    @organisation.users.build
+    @organisation
   end
+ 
   
   def create
-#    if Organisation.create(organisation_params.merge(tenant_name: organisation_params[:name].underscore.tr(' ', '_')))
-#      flash[:success] = "You have successfully been signed up"
-#      redirect_to root_url
-#    else
-@organisation = Organisation.new
-    @organisation.user = User.new
+    @organisation = Organisation.new(organisation_params)
+    @pop = organisation_params
+    #@organisation.build_user(organisation_params[:user])
+    if @organisation.save
+      Apartment::Tenant.create(organisation_params[:tenant_name])
+      @organisation.user = @organisation.users.first
+      if @organisation.save
+        flash[:success] = "You have successfully been signed up, please follow the confirmation email that was sent to #{@organisation.user.email}"
+      else
+        flash[:warning] = "You have successfully been signed up, but your primamry user has not been set up."
+      end
+        redirect_to root_url
+    else
       render "new"
-#    end
+    end
   end
   
   private
   
   def organisation_params
-    params.require(:organisation).permit(:name, users_attributes: [:email, :password, :password_confirmation])
+    white_list = params.require(:organisation).permit(:name, :tenant_name, users_attributes: [:email, :name, :surname, :password, :password_confirmation])
+    
+    tenant_name = white_list[:name].underscore.tr(' ', '_')
+    white_list.merge(tenant_name: tenant_name)
   end
 end

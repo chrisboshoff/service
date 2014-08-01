@@ -1,7 +1,7 @@
 <div class="container">
   <h4>Sign up your organisation with Cloud Service</h4>
   <p>The best mobile service solution for your organisation.</p>
-<%= params.inspect %>
+
   <hr/>
 
   <%= form_for @organisation do |f| %>
@@ -21,25 +21,33 @@
       <%= f.label :name, "Organisation Name" %><br />
       <%= f.text_field :name, class: 'form-control' %>
       </div>
-      <%= f.fields_for :user, @organisation.build_user do |u| %>
+    <hr/>
+      <%=  f.fields_for :users do |u| %>
         <div class="form-group">
           <%= u.label :email %><br />
-          <%= u.text_field :email, class: 'form-control' %>
+          <%= u.email_field :email, class: 'form-control' %>
           </div>
-
           <div class="form-group">
-            <%= u.label :password %><br />
-            <%= u.password_field :password, class: 'form-control' %>
+            <%= u.label :name %><br />
+            <%= u.text_field :name, class: 'form-control' %>
             </div>
             <div class="form-group">
-              <%= u.label :password_confirmation %><br />
-              <%= u.password_field :password_confirmation, class: 'form-control' %>
+              <%= u.label :surname %><br />
+              <%= u.text_field :surname, class: 'form-control' %>
               </div>
-            <% end %>
+              <div class="form-group">
+                <%= u.label :password %><br />
+                <%= u.password_field :password, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= u.label :password_confirmation %><br />
+                  <%= u.password_field :password_confirmation, class: 'form-control' %>
+                  </div>
+                <% end %>
 
-            <%= f.submit "Sign up", class: 'btn btn-primary' %>
+                <%= f.submit "Sign up", class: 'btn btn-primary' %>
 
 
-            <% end %>
-          </div>
+                <% end %>
+              </div>
 
