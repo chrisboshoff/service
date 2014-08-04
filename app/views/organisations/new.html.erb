@@ -1,53 +1,78 @@
 <div class="container">
-  <h4>Sign up your organisation with Cloud Service</h4>
-  <p>The best mobile service solution for your organisation.</p>
+  <h4>Sign up for free with Cloud Service</h4>
+  <p>The most intelligent service solution.</p>
 
   <hr/>
+  <div class="row">
+    <div class="col-md-8 col-xs-12">
+      <%= form_for @organisation do |f| %>
+        <% if @organisation.errors.any? %>
+          <div class="panel panel-danger">
+            <div class="panel-heading"><%= pluralize(@organisation.errors.count, "error") %> prohibited the sign up of this organisation:</div>
 
-  <%= form_for @organisation do |f| %>
-    <% if @organisation.errors.any? %>
-      <div class="panel panel-danger">
-        <div class="panel-heading"><%= pluralize(@organisation.errors.count, "error") %> prohibited the sign up of this organisation:</div>
-
-        <div class="panel-body">
-          <% @organisation.errors.full_messages.each do |msg| %>
-            <div><%= msg %></div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.label :name, "Organisation Name" %><br />
-      <%= f.text_field :name, class: 'form-control' %>
-      </div>
-    <hr/>
-      <%=  f.fields_for :users do |u| %>
-        <div class="form-group">
-          <%= u.label :email %><br />
-          <%= u.email_field :email, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= u.label :name %><br />
-            <%= u.text_field :name, class: 'form-control' %>
+            <div class="panel-body">
+              <% @organisation.errors.full_messages.each do |msg| %>
+                <div><%= msg %></div>
+              <% end %>
             </div>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :name, "Organisation Name" %><br />
+          <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <hr/>
+          <%=  f.fields_for :users do |u| %>
             <div class="form-group">
-              <%= u.label :surname %><br />
-              <%= u.text_field :surname, class: 'form-control' %>
+              <%= u.label :email %><br />
+              <div class="input-group">
+              <div class="input-group-addon">@</div>             
+              <%= u.email_field :email, class: 'form-control' %>
+              </div>
               </div>
               <div class="form-group">
-                <%= u.label :password %><br />
-                <%= u.password_field :password, class: 'form-control' %>
+                <%= u.label :name %><br />
+                <%= u.text_field :name, class: 'form-control' %>
                 </div>
                 <div class="form-group">
-                  <%= u.label :password_confirmation %><br />
-                  <%= u.password_field :password_confirmation, class: 'form-control' %>
+                  <%= u.label :surname %><br />
+                  <%= u.text_field :surname, class: 'form-control' %>
                   </div>
-                <% end %>
+                  <div class="form-group">
+                    <%= u.label :password %><br />
+                    <%= u.password_field :password, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <%= u.label :password_confirmation %><br />
+                      <%= u.password_field :password_confirmation, class: 'form-control' %>
+                      </div>
+                    <% end %>
 
-                <%= f.submit "Sign up", class: 'btn btn-primary' %>
+                    <%= f.submit "Sign up", class: 'btn btn-primary' %>
 
 
-                <% end %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-4 hidden-sm hidden-xs" style="background-color: #F9F9F9;">
+                    <br/>
+                    <div align='center'><img src='/assets/cloud_black.png' width='100'></div>
+                    <p align="center" style='margin-top: -15px;'><strong>Cloud Service</strong></p>
+                    <hr/>
+                    <p align="center"><strong>Join the most intelligent Service Solution</strong></p>
+                    <ul>
+                    <li>With our intelligent location based mapping you can start using the system today without having to import your entire client base first.</li>
+                    <p></p>
+                    <li>Use the power of your mobile device to take on or validate the name or location of your clients.</li>
+                    <p></p>
+                    <li>The system learns as you use it to eliminate duplication of work and speed up productivity.</li>
+                    </ul>
+                    <hr/>
+                     <p align="center"><strong>Remember, it's free!</strong></p>
+                     <p align="center"><strong>Yes, mahala!</strong></p>
+                     <br/>
+                     <br/>
+                  </div>
+
+                </div>
               </div>
-
