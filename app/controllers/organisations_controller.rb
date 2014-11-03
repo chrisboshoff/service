@@ -28,7 +28,7 @@ class OrganisationsController < ApplicationController
   private
   
   def organisation_params
-    white_list = params.require(:organisation).permit(:name, :tenant_name, users_attributes: [:email, :name, :surname, :password, :password_confirmation])
+    white_list = params.require(:organisation).permit(:name, :tenant_name, users_attributes: [:email, :name, :password, :password_confirmation])
     
     tenant_name = white_list[:name].underscore.tr(' ', '_')
     white_list.merge(tenant_name: tenant_name)
