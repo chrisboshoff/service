@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
     if user
       #UserMailer.welcome_email(user).deliver
       if user.verified == true
-        Apartment::Tenant.switch(user.organisation.tenant_name)
         session[:user_id] = user.id
         flash[:success] = "Welcome back #{user.name}"
       else
